@@ -1,4 +1,4 @@
-package logger
+package log
 
 import (
 	"fmt"
@@ -10,9 +10,9 @@ import (
 
 type LogType string
 const (
-	LoggerError LogType = "err"
-	LoggerInfo  LogType = "info"
-	LoggerWarn  LogType = "warn"
+	Error LogType = "err"
+	Info  LogType = "info"
+	Warn  LogType = "warn"
 )
 
 type Logger struct {
@@ -31,19 +31,19 @@ func NewLogger() Logger {
 
 func (logger *Logger) Log(logType LogType, message string) {
 	switch logType {
-	case LoggerError:
+	case Error:
 		if runtime.GOOS == "windows" {
 			fmt.Fprintf(color.Output, GenerateDateString()+color.RedString(" ERROR ")+message+"\n")
 		} else {
 			fmt.Println(GenerateDateString() + color.RedString(" ERROR ") + message + "\n")
 		}
-	case LoggerInfo:
+	case Info:
 		if runtime.GOOS == "windows" {
 			fmt.Fprintf(color.Output, GenerateDateString()+color.CyanString(" INFO ")+message+"\n")
 		} else {
 			fmt.Println(GenerateDateString() + color.CyanString(" INFO ") + message + "\n")
 		}
-	case LoggerWarn:
+	case Warn:
 		if runtime.GOOS == "windows" {
 			fmt.Fprintf(color.Output, GenerateDateString()+color.YellowString(" WARN ")+message+"\n")
 		} else {
