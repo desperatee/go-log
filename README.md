@@ -9,6 +9,5 @@ package main
 import "github.com/desperatee/go-log"
 
 func main() {
-  logger := log.NewLogger()
-  logger.Log(log.Info, "Hello world!")
+  log.Log(log.Info, "Hello world!")
 }
