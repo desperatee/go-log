@@ -35,19 +35,19 @@ func (logger *Logger) Log(logType LogType, message string) {
 		if runtime.GOOS == "windows" {
 			fmt.Fprintf(color.Output, GenerateDateString()+color.RedString(" ERROR ")+message+"\n")
 		} else {
-			fmt.Println(GenerateDateString() + color.RedString(" ERROR ") + message + "\n")
+			fmt.Println(GenerateDateString() + color.RedString(" ERROR ") + message)
 		}
 	case Info:
 		if runtime.GOOS == "windows" {
 			fmt.Fprintf(color.Output, GenerateDateString()+color.CyanString(" INFO ")+message+"\n")
 		} else {
-			fmt.Println(GenerateDateString() + color.CyanString(" INFO ") + message + "\n")
+			fmt.Println(GenerateDateString() + color.CyanString(" INFO ") + message)
 		}
 	case Warn:
 		if runtime.GOOS == "windows" {
 			fmt.Fprintf(color.Output, GenerateDateString()+color.YellowString(" WARN ")+message+"\n")
 		} else {
-			fmt.Println(GenerateDateString() + color.YellowString(" WARN ") + message + "\n")
+			fmt.Println(GenerateDateString() + color.YellowString(" WARN ") + message)
 		}
 	}
 }
