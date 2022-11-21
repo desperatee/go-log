@@ -15,21 +15,13 @@ const (
 	Warn  LogType = "warn"
 )
 
-type Logger struct {
-}
-
 func GenerateDateString() string {
 	current_time := time.Now()
 	stamp := current_time.Local().Format("15:04:05.000")
 	return stamp
 }
 
-func NewLogger() Logger {
-	logger := Logger{}
-	return logger
-}
-
-func (logger *Logger) Log(logType LogType, message string) {
+func Log(logType LogType, message string) {
 	switch logType {
 	case Error:
 		if runtime.GOOS == "windows" {
