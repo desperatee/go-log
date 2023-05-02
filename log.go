@@ -17,7 +17,7 @@ const (
 
 func GenerateDateString() string {
 	current_time := time.Now()
-	stamp := current_time.Local().Format("15:04:05.000")
+	stamp := current_time.Local().Format("2006-01-02 15:04:05.000")
 	return stamp
 }
 
